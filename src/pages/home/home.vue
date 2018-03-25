@@ -1,42 +1,43 @@
 <template>
     <div class="main">
-        <p v-text="msg"></p>
+        <div>
+            <p>访问统计:</p>
+            <p>累计访问量:<span v-text="totalCount"></span></p>
+            <p>今日访问量:<span v-text="todayCount"></span></p>
+        </div>
     </div>
 </template>
-<style lang="stylus" scoped>
-    .main {
-        font-size: 24px;
-    }
+<style scoped>
 
 </style>
 <script>
-
-
-    export default{
-        created(){
-            document.title = "首页";
-        },
-        mounted(){
-            
-            let _this = this;
-            this.$axios.post("test", {}).then(function (response) {
-                //处理
-                console.log(response);
-            });
-            
-        },
-        data(){
-            return {
-                msg: "7894561230"
-            }
-        },
-        components: {
-        },
-        computed: {
-        },
-        methods: {
+export default{
+    name: "home",
+    data(){
+        return {
+            totalCount: 0,  //累计访问量
+            todayCount: 0,  //今日访问量
         }
+    },
+    created(){
+    },
+    mounted(){
+        
+        let _this = this;
+        this.$axios.post("stat", {}).then(function (response) {
+            //处理
+            _this.totalCount = response.data.totalCount;
+            _this.todayCount = response.data.todayCount;
+        });
+        
+    },
+    components: {
+    },
+    computed: {
+    },
+    methods: {
     }
+}
 
 
 

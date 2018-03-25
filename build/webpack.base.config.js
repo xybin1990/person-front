@@ -8,6 +8,7 @@ let BUILD_PATH = path.join(__dirname, "../dist"); //输出目录
 let webpack = require('webpack');
 let ExtractTextPlugin = require("extract-text-webpack-plugin");
 
+let config = require("./config.json");  //导入配置文件
 
 module.exports = {
     entry: {

@@ -11,7 +11,6 @@ import axios from 'axios'
 import '../assets/common.css' //通用格式化css
 import '../util/flexible' //移动端适配设置
 
-import { baseURL } from 'config/index.js' //引入baseURL
 
 //根据process.env.NODE_ENV判断执行环境
 //'development'     本地测试环境      对应 npm run dev
@@ -27,7 +26,7 @@ Vue.config.productionTip = false
 
 //设置接口请求地址 本地开发关闭 测试环境或生产环境打开
 if (process.env.NODE_ENV === "dev" || process.env.NODE_ENV === "production") {
-    axios.defaults.baseURL = baseURL;
+    axios.defaults.baseURL = config.build_url;
 }
 
 //添加请求拦截器

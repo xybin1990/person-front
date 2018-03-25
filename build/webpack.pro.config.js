@@ -15,6 +15,8 @@ let CleanWebpackPlugin = require('clean-webpack-plugin');
 
 let url = require('./util/url'); //静态服务器地址
 
+let config = require('./config.json');
+
 let routesArr = require('./util/routesArr') //导入路由分析脚本
 
 //获取执行的npm命令
@@ -26,7 +28,8 @@ if (npmScripts === "test") {
     definePlugin = new webpack.DefinePlugin({
         'process.env.NODE_ENV': '"dev"',
         'pages': JSON.stringify(routesArr.pagesArr),
-        'blocks': JSON.stringify(routesArr.blocksArr)
+        'blocks': JSON.stringify(routesArr.blocksArr),
+        'config': JSON.stringify(config)
     })
 
 } else if (npmScripts === "build") {
@@ -34,7 +37,8 @@ if (npmScripts === "test") {
     definePlugin = new webpack.DefinePlugin({
         'process.env.NODE_ENV': '"production"',
         'pages': JSON.stringify(routesArr.pagesArr),
-        'blocks': JSON.stringify(routesArr.blocksArr)
+        'blocks': JSON.stringify(routesArr.blocksArr),
+        'config': JSON.stringify(config)
     })
 
 }
