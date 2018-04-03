@@ -24,11 +24,10 @@ export default{
     mounted(){
         
         let _this = this;
-        this.$axios.post("stat", {}).then(function (response) {
-            //处理
-            _this.totalCount = response.data.totalCount;
-            _this.todayCount = response.data.todayCount;
-        });
+       
+        this.$axios.post("/api/per-app/count",{name:'xieyuanbin'}).then((response)=>{
+            console.log(response);
+        })
         
     },
     components: {

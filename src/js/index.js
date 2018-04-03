@@ -23,6 +23,7 @@ import '../util/flexible' //移动端适配设置
 
 //设置为 false 以阻止 vue 在启动时生成生产提示。
 Vue.config.productionTip = false
+Vue.config.silent = true  //取消 Vue 所有的日志与警告。
 
 //设置接口请求地址 本地开发关闭 测试环境或生产环境打开
 if (process.env.NODE_ENV === "dev" || process.env.NODE_ENV === "production") {

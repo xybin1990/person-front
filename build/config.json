@@ -1,5 +1,5 @@
 {
-    "proxy_target": "http://www.xybin1990.cn/",
+    "proxy_target": "http://127.0.0.1:3001/",
     "dev_url": "http://47.75.47.239:3000/",
     "build_url": "http://www.xybin1990.cn/"
 }
