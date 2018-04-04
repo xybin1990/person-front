@@ -50,12 +50,12 @@ module.exports = Merge(BaseConfig, {
         port: '1990',
         stats: "errors-only", //只显示错误统计信息 其他参数["minimal"，"normal"，"verbose"]
             //host: '172.16.111.91',
-        proxy: {
-            '*': {
-                target: config.proxy_target,
-                secure: false
-            }
-        }
+        // proxy: {
+        //     '*': {
+        //         target: config.proxy_target,
+        //         secure: false
+        //     }
+        // }
     }
 
 
